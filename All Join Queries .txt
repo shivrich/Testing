@@ -1,0 +1,94 @@
+create table customer (id int, E_name Varchar(10), Address varchar(20))
+create table Department (D_id int, D_name Varchar(10), D_Location varchar(20))
+
+insert into customer values (1, 'Ram', 'Delhi')
+insert into customer values (2, 'Sham', 'Pune')
+update customer set Address='Pune' where id=3;
+insert into customer values (4, 'Prakash', 'Hydrabad')
+
+insert into Department values (1, 'D1', 'Delhi')
+insert into Department values (2, 'D2', 'Pune')
+insert into Department values (3, 'D3', 'Mumbai')
+
+select * from customer
+select * from Department
+
+--Inner Join (join)
+select customer.E_name, 
+	customer.Address, 
+	department.D_Location,
+	department.D_name
+from
+	customer
+join Department
+on customer.id=Department.D_id;
+
+--Left Join 
+select customer.E_name, 
+	customer.Address, 
+	department.D_Location,
+	department.D_name
+from
+	customer
+Left join Department
+on customer.id=Department.D_id;
+
+--Right Join 
+select customer.E_name, 
+	customer.Address, 
+	department.D_Location,
+	department.D_name
+from
+	customer
+Right join Department
+on customer.id=Department.D_id;
+
+--Full outer Join 
+select customer.E_name, 
+	customer.Address, 
+	department.D_Location,
+	department.D_name
+from
+	customer
+ Full join Department
+on customer.id=Department.D_id;
+
+--Equi  Join 
+select customer.E_name, 
+	customer.Address, 
+	department.D_Location,
+	department.D_name
+from
+	customer, Department
+where customer.id=Department.D_id
+and  customer.Address=Department.D_Location;
+
+--Cross  Join 
+select customer.E_name, 
+	customer.Address, 
+	department.D_Location,
+	department.D_name
+from
+	customer, Department
+where customer.id=Department.D_id;
+
+
+select * from customer
+select * from Department
+
+select * from customer as C1 
+join customer as C2
+on C1.id=C2.id
+where C1.Address=C2.Address;
+
+select * from customer
+Union
+select * from Department
+
+select * from customer
+Union all
+select * from Department
+
+select * from customer
+intersect
+select * from Department
